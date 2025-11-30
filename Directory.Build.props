@@ -1,27 +1,20 @@
 <Project>
 
   <PropertyGroup>
-    <TargetFramework>net9.0-windows</TargetFramework>
-    <LangVersion>13</LangVersion>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <LangVersion>14</LangVersion>
     <Platforms>x64</Platforms>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <BaseOutputPath>$(SolutionDir)bin\</BaseOutputPath>
     <Version>1.16.0</Version>
     <Company>foohyfooh</Company>
     <Authors>foohyfooh</Authors>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="PKHeX.Core" Version="25.11.16" />
-    <PackageReference Include="Costura.Fody" Version="5.7.0" PrivateAssets="all" />
-    <PackageReference Include="Fody" Version="6.9.2" PrivateAssets="all" />
-    <ProjectReference Include="$(SolutionDir)\PluginPile.Common\PluginPile.Common.csproj" Condition="'$(RootNamespace)' != 'PluginPile.Common'" PrivateAssets="All"/>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="$(SolutionDir)\FodyWeavers.xml" Link="FodyWeavers.xml" Condition="'$(RootNamespace)' != 'PluginPile.Common'" />
+    <ProjectReference Include="$(MSBuildThisFileDirectory)..\PKHeXth\PKHeX.Core\PKHeX.Core.csproj" />
+    <ProjectReference Include="$(MSBuildThisFileDirectory)PluginPile.Common\PluginPile.Common.csproj" Condition="'$(RootNamespace)' != 'PluginPile.Common'" PrivateAssets="All"/>
   </ItemGroup>
 
 </Project>
